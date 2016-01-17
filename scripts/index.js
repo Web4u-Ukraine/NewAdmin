@@ -14,7 +14,25 @@ $(function () {
             ["Отмена"],//4
             ["Действие отменено"],//5
             ["Да, удалить"],//6
-            ["Нет, отмена"]//7
+            ["Нет, отмена"],//7
+            ["Список всех товаров"],//8
+            ["Здесь вы можете посмотреть все позиции"],//9
+            ["Пагинация"],//10
+            ["Вы можете задать количество строк, которое будет показываться на странице"],//11
+            ["Поиск"],//12
+            ["Вы можете искать нужную вам информацию, строки автоматически будут фильтрироваться"],//13
+            ["Сортировка"],//14
+            ["Вы можете сортировать информацию по нужному полю"],//15
+            ["Страницы"],//16
+            ["Вы можете переходить на нужную страницу"],//17
+            ["Действия"],//18
+            ["Синяя кнопка - переход на редактирование, красная - удаление"],//19
+            ["Создание"],//20
+            ["Для того, что бы создать новый элемент, нажмите эту кнопку"],//21
+            ["назад"],//22
+            ["дальше"],//23
+            ["завершить"]//24
+
         ]
     };
 
@@ -105,6 +123,82 @@ $(function () {
             msg(deb[0].status, deb[0].sms);
         }
     })
+
+    /*** TODO допомога ***/
+    // Instance the tour
+    var tour = new Tour({
+        backdrop: true,
+        template: "<div class='popover tour'><div class='arrow'></div><h3 class='popover-title'></h3><div class='popover-content'></div><div class='popover-navigation'><button class='btn btn-default btn-xs' data-role='prev'>« "+words.rus[22]+"</button>&nbsp;<button class='btn btn-default btn-xs' data-role='next'>"+words.rus[23]+" »</button><button class='btn btn-default btn-xs pull-right' data-role='end'>"+words.rus[24]+"</button></div></nav></div>",
+        onShown: function(tour) {
+
+            // ISSUE    - https://github.com/sorich87/bootstrap-tour/issues/189
+            // FIX      - https://github.com/sorich87/bootstrap-tour/issues/189#issuecomment-49007822
+
+            // You have to write your used animated effect class
+            // Standard animated class
+            $('.animated').removeClass('fadeIn');
+            // Animate class from animate-panel plugin
+            $('.animated-panel').removeClass('zoomIn');
+
+        },
+        steps: [
+            {
+                element: ".tour-1",
+                title: words.rus[8][0],
+                content: words.rus[9][0],
+                placement: "top"
+            },
+            {
+                element: ".dataTables_length label",
+                title: words.rus[10][0],
+                content: words.rus[11][0],
+                placement: "bottom"
+
+            },
+            {
+                element: ".dataTables_filter label",
+                title: words.rus[12][0],
+                content: words.rus[13][0],
+                placement: "left"
+
+            },
+            {
+                element: ".sorting_asc",
+                title: words.rus[14][0],
+                content: words.rus[15][0],
+                placement: "bottom"
+
+            },
+            {
+                element: ".pagination",
+                title: words.rus[16][0],
+                content: words.rus[17][0],
+                placement: "top"
+
+            },
+            {
+                element: ".odd td:last",
+                title: words.rus[18][0],
+                content: words.rus[19][0],
+                placement: "left"
+
+            },
+            {
+                element: ".tour-final",
+                title: words.rus[20][0],
+                content: words.rus[21][0],
+                placement: "bottom"
+
+            }
+        ]});
+
+    // Initialize the tour
+    tour.init();
+
+    // Restart the tour
+    $('.run-tour').click(function(){
+        tour.restart();
+    });
 });
 
 function msg(status, sms) {

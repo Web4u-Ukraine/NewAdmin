@@ -16,7 +16,8 @@
                 }
                 ?>
                 <? if ($arg3==''){ ?>
-                <a href="add/" class="btn btn-success pull-right"><i class="fa fa-plus"></i> <?= $index->getWords(12) ?></a>
+                <button class="btn btn-primary run-tour pull-right" style="margin-left: 10px"><i class="fa fa-question"></i> <?= $index->getWords(17) ?></button>
+                <a href="add/" class="btn btn-success pull-right tour-final"><i class="fa fa-plus"></i> <?= $index->getWords(12) ?></a>
                 <? } ?>
             </h2>
         </div>
@@ -29,9 +30,9 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="hpanel">
-                <div class="panel-body">
+                <div class="panel-body tour-1">
                     <? if ($arg3==''){ ?>
-                    <table id="index" data-toggle="ajax" data-table="category" class="display table table-bordered">
+                    <table id="index" data-toggle="ajax" data-table="<?= $arg2 ?>" class="display table table-bordered">
                         <thead>
                         <tr>
                             <?
