@@ -10,7 +10,7 @@
             <h2 class="font-light m-b-xs">
                 <?
                 if ($arg3==''){
-                    $table[$arg2]['title']['index'];
+                    echo $table[$arg2]['title']['index'];
                 } else {
                     echo $arg3=='add'?$table[$arg2]['title']['add']:$table[$arg2]['title']['edit'];
                 }
