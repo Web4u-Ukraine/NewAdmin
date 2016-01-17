@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="<?= $puth ?>/vendor/sweetalert/lib/sweet-alert.css" />
   <link rel="stylesheet" href="<?= $puth ?>/vendor/select2-3.5.2/select2.css" />
   <link rel="stylesheet" href="<?= $puth ?>/vendor/select2-bootstrap/select2-bootstrap.css" />
+  <link rel="stylesheet" href="<?= $puth ?>/vendor/bootstrap-tour/build/css/bootstrap-tour.min.css" />
   <!-- App styles -->
   <link rel="stylesheet" href="<?= $puth ?>/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" />
   <link rel="stylesheet" href="<?= $puth ?>/fonts/pe-icon-7-stroke/css/helper.css" />

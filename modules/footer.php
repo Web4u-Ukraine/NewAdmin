@@ -117,13 +117,13 @@
         <span class="pull-right">
             web4u
         </span>
-    Company 2014-2015
+    &copy; 2014-2015
 </footer>
 
 </div>
 <!-- Vendor scripts -->
 <script src="<?= $puth ?>/vendor/jquery/dist/jquery.min.js"></script>
-<script src="<?= $puth ?>/vendor/jquery-ui/jquery-ui.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 <script src="<?= $puth ?>/vendor/slimScroll/jquery.slimscroll.min.js"></script>
 <script src="<?= $puth ?>/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="<?= $puth ?>/vendor/jquery-flot/jquery.flot.js"></script>
@@ -139,6 +139,7 @@
 <script src="<?= $puth ?>/vendor/sweetalert/lib/sweet-alert.min.js"></script>
 <script src="<?= $puth ?>/vendor/select2-3.5.2/select2.min.js"></script>
 <!-- App scripts -->
+<script src="<?= $puth ?>/vendor/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
 <script src="<?= $puth ?>/scripts/homer.js"></script>
 <script src="<?= $puth ?>/scripts/index.js"></script>
 <script src="<?= $puth ?>/scripts/charts.js"></script>
