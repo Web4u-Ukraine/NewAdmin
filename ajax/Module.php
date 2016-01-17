@@ -44,4 +44,16 @@ switch ($_REQUEST['flag']){
         $info[0]=array("sms"=>$index->getWords(15), "status"=>"success");
         echo json_encode($info);
         break;
+
+    case 'edit':
+        $index=new Index('rus');
+        $res=new Sql($_POST);
+        $not=['flag', 'table'];
+        $more='';
+        $query=$res->editSql($more, $not);
+        $id=$_POST['id'];
+        sql(3, $_POST['table'], "$query where id='$id'");
+        $info[0]=array("sms"=>$index->getWords(16), "status"=>"info");
+        echo json_encode($info);
+        break;
 }
