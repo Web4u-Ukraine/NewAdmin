@@ -18,13 +18,13 @@ class Sql {
                 if (is_array($this->data[$key])){
                     $body.="`".$key."`='".implode('&', $value)."',";
                 } else {
-                    $body.="`".$key."`='".mysql_real_escape_string($value)."',";
+                    $body.="`".$key."`='".mysql_escape_string($value)."',";
                 }
             }
         }
 
         foreach ($more as $k=>$v){
-            $body.="`".$k."`='".mysql_real_escape_string($v)."',";
+            $body.="`".$k."`='".mysql_escape_string($v)."',";
         }
 
         return substr($body, 0, -1);
@@ -45,7 +45,7 @@ class Sql {
 
         foreach ($more as $k=>$v){
             $body1.=$k.",";
-            $body2.="'".addslashes($v)."',";
+            $body2.="'".mysql_escape_string($v)."',";
         }
         return "(".substr($body1, 0, -1).") values (".substr($body2, 0, -1).")";
     }
