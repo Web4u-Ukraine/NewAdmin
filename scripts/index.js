@@ -199,6 +199,24 @@ $(function () {
     $('.run-tour').click(function(){
         tour.restart();
     });
+
+    /*** TODO редактор ***/
+    tinymce.init({
+        selector: "textarea.editor",
+        height: '300',
+        language : 'ru_RU',
+        plugins: [
+            "responsivefilemanager, advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+            "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+            "save table contextmenu directionality emoticons template paste textcolor"
+        ],
+        toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect",
+        toolbar2: "| responsivefilemanager | link unlink anchor | image media | forecolor backcolor  | print preview code ",
+        image_advtab: true ,
+        external_filemanager_path:"/admin/finder/filemanager/",
+        filemanager_title:"Файловый менеджер" ,
+        external_plugins: { "filemanager" : "/admin/finder/filemanager/plugin.min.js"}
+    });
 });
 
 function msg(status, sms) {
@@ -281,6 +299,45 @@ function msg(status, sms) {
                 })
             }
 
+        });
+        return this;
+    };
+})(jQuery);
+
+(function($) {
+    $.fn.jLoad = function(options) {
+        options = $.extend({
+            path: '/source/',
+            multi: false,
+            field: 'img',
+            onsuccess: function(res){
+                console.log(res);
+            }
+        }, options);
+        $(this).change(function(evt) {
+            var files = evt.target.files;
+            var th=$(this);
+            for (var i = 0, f; f = files[i]; i++) {
+                if (!f.type.match('image.*')) {
+                    continue;
+                }
+                var file_name = f.name;
+                var reader = new FileReader();
+                reader.onload = (function(theFile) {
+                    return function(e) {
+                        $.ajax({
+                            type: 'post',
+                            url: '/admin/source.php',
+                            data: 'tmp=' + e.target.result + '&name=' + file_name + '&folder=' + options.path,
+                            async: false,
+                            success: function(res) {
+                                options.onsuccess(res, file_name);
+                            }
+                        })
+                    };
+                })(f);
+                reader.readAsDataURL(f);
+            }
         });
         return this;
     };

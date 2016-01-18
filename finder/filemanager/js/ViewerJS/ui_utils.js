@@ -232,7 +232,7 @@ function getVisibleElements(scrollEl, views, sortByVisibility) {
 }
 
 /**
- * Event handler to suppress context events.
+ * Event handler to suppress context menu.
  */
 function noContextMenuHandler(e) {
   e.preventDefault();

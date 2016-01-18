@@ -70,7 +70,7 @@ package {
 
 		private var securityIssue:Boolean = false; // On direct access and when SWF parameters contain illegal characters
 
-		private var contextMenuFix:Sprite = new Sprite(); // A sprite that will be on top and fix the content events over video bug. (A Flash plugin bug.)
+		private var contextMenuFix:Sprite = new Sprite(); // A sprite that will be on top and fix the content menu over video bug. (A Flash plugin bug.)
 
 		private var txLog:TextField;
 		private var debug:Boolean = false; // Set debug to false for release compile!
@@ -115,7 +115,7 @@ package {
 				switchType("mp3"); // set default state to mp3
 			}
 
-			// The ContextMenu only partially works. The events select events never occur.
+			// The ContextMenu only partially works. The menu select events never occur.
 			// Investigated and it is something to do with the way jPlayer inserts the Flash on the page.
 			// A simple test inserting the Jplayer.swf on a page using: 1) SWFObject 2.2 works. 2) AC_FL_RunContent() works.
 			// jPlayer Flash insertion is based on SWFObject 2.2 and the resaon behind this failure is not clear. The Flash insertion HTML on the page looks similar.

@@ -21,6 +21,22 @@
                 $option=$module->getOption("category", "id", "name", "");
                 include '../admin/template/select.tpl';
                 break;
+
+            case 'textarea':
+                $name=$key;
+                $label=$value['name'];
+                $class=$value['class'];
+                $value='';
+                include '../admin/template/textarea.tpl';
+                break;
+
+            case 'file':
+                $name=$key;
+                $label=$value['name'];
+                $class=$value['class'];
+                $value='';
+                include '../admin/template/textarea.tpl';
+                break;
         }
     }
     ?>

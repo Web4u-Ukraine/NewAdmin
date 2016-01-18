@@ -33617,7 +33617,7 @@ var WorkerMessageHandler = PDFJS.WorkerMessageHandler = {
 
           var pdfFile;
           if (args === null) {
-            // TODO add some streaming about_us, e.g. for unknown length files.
+            // TODO add some streaming manager, e.g. for unknown length files.
             // The data was returned in the onProgressiveData, combining...
             var pdfFileLength = 0, pos = 0;
             cachedChunks.forEach(function (chunk) {

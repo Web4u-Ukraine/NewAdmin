@@ -1,6 +1,52 @@
 Responsive Filemanager Changelog 
 
 *********************************************************
+*  RFM 9.9.6
+*********************************************************
+- fixed a security vulnerability(thanks to securitum.pl)
+- code refactoring removed thumb path to ajax calls
+- improve file/folder permission layout and fixed a error
+- fixed a problem with image editor
+- added vitnamese language
+
+
+*********************************************************
+*  RFM 9.9.5
+*********************************************************
+- fixed a Adobe Creative SDK issue
+- fixed a problem when you edit multiple image in the same session
+- fixed a problem with security issue in some server configurations
+- added maxSize config to Adobe Creative SDK export image (default now is 1400)
+
+
+*********************************************************
+*  RFM 9.9.4
+*********************************************************
+- Upgrade Aviary Image Editor with new Adobe Creative SDK without size limitation
+- Add files and folders counter on each folder
+- Fixed a problem with folder selection on relative url
+
+*********************************************************
+*  RFM 9.9.3
+*********************************************************
+- Fixed the problem with undefined windowParent
+- Fixed a problem with selection on CKeditor
+- Added bootstrap modal default support
+
+*********************************************************
+*  RFM 9.9.2
+*********************************************************
+- added file selection directly from dropzone upload area (you can now select file directly after upload)
+- folder selection in context menu (you can now select also a folder)
+- responsive filemanager modal open on tinyMCE (the dimension of modal depend on window dimension)
+- utf8 translitteration fix
+
+*********************************************************
+*  RFM 9.9.1
+*********************************************************
+- bugfix
+
+*********************************************************
 *  RFM 9.9.0
 *********************************************************
 - add compatibility with CKEditor (thanks to dennis.buijs)
@@ -9,7 +55,6 @@ Responsive Filemanager Changelog
 - updated libraries via bower dependency management (thanks to rkgrep)
 - added Assets compilation via gulp for developing (thanks to rkgrep)
 - added Hebrew lang (sagie212)
-- improve image preview
 
 
 *********************************************************

@@ -138,6 +138,7 @@
 <script src="<?= $puth ?>/vendor/toastr/build/toastr.min.js"></script>
 <script src="<?= $puth ?>/vendor/sweetalert/lib/sweet-alert.min.js"></script>
 <script src="<?= $puth ?>/vendor/select2-3.5.2/select2.min.js"></script>
+<script src="<?= $puth ?>/vendor/tinymce/tinymce.min.js"></script>
 <!-- App scripts -->
 <script src="<?= $puth ?>/vendor/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
 <script src="<?= $puth ?>/scripts/homer.js"></script>
