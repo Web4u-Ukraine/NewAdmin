@@ -122,6 +122,10 @@
 
 </div>
 <!-- Vendor scripts -->
+<script id="fileUploadButton" type="text/x-handlebars-template">
+    <button class="btn btn-info btn-sm"><i class="fa fa-eye"></i></button>&nbsp;
+    <button class="btn btn-error btn-sm"><i class="fa fa-trash"></i></button>
+</script>
 <script src="<?= $puth ?>/vendor/jquery/dist/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 <script src="<?= $puth ?>/vendor/slimScroll/jquery.slimscroll.min.js"></script>
@@ -139,6 +143,7 @@
 <script src="<?= $puth ?>/vendor/sweetalert/lib/sweet-alert.min.js"></script>
 <script src="<?= $puth ?>/vendor/select2-3.5.2/select2.min.js"></script>
 <script src="<?= $puth ?>/vendor/tinymce/tinymce.min.js"></script>
+<script src="<?= $puth ?>/scripts/handlebars-v4.0.5.js"></script>
 <!-- App scripts -->
 <script src="<?= $puth ?>/vendor/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
 <script src="<?= $puth ?>/scripts/homer.js"></script>

@@ -11,6 +11,9 @@ $ext=$ext[count($ext)-1];
 if (!isset($_POST[folder])||$_POST[folder]=='/source/'){
 	$fpng = fopen($_SERVER['DOCUMENT_ROOT']."/source/".$name.".".$ext, "w");
 } else {
+	if (!file_exists($_SERVER['DOCUMENT_ROOT'].$_POST[folder])){
+		mkdir($_SERVER['DOCUMENT_ROOT'].$_POST[folder]);
+	}
 	$fpng = fopen($_SERVER['DOCUMENT_ROOT'].$_POST[folder].$name.".".$ext, "w");
 }
 //echo $img;

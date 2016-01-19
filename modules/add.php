@@ -31,11 +31,17 @@
                 break;
 
             case 'file':
+                $label_file=$index->getWords(18);
+                $name_file=$index->getWords(19);
+                $size=$index->getWords(20);
+                $progress=$index->getWords(21);
+                $count=$index->getWords(22);
+                $label_upload=$index->getWords(23);
                 $name=$key;
                 $label=$value['name'];
                 $class=$value['class'];
                 $value='';
-                include '../admin/template/textarea.tpl';
+                include '../admin/template/file.tpl';
                 break;
         }
     }

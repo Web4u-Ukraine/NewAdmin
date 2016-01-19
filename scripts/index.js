@@ -217,6 +217,13 @@ $(function () {
         filemanager_title:"Файловый менеджер" ,
         external_plugins: { "filemanager" : "/admin/finder/filemanager/plugin.min.js"}
     });
+
+    $("#files").jLoad({
+        path: '/source/items/',
+        onsuccess: function(res, name){
+            console.log(res, name);
+        }
+    })
 });
 
 function msg(status, sms) {
@@ -309,7 +316,7 @@ function msg(status, sms) {
         options = $.extend({
             path: '/source/',
             multi: false,
-            field: 'img',
+            type: 'image.*',
             onsuccess: function(res){
                 console.log(res);
             }
@@ -318,22 +325,28 @@ function msg(status, sms) {
             var files = evt.target.files;
             var th=$(this);
             for (var i = 0, f; f = files[i]; i++) {
-                if (!f.type.match('image.*')) {
+                if (!f.type.match(options.type)) {
                     continue;
                 }
                 var file_name = f.name;
                 var reader = new FileReader();
+                th.parents('.hpanel').find('table tbody').append('<tr><td class="col-md-8">'+file_name+'</td><td class="col-md-2"><span class="label label-info">Начало загрузки <i class="fa fa-refresh fa-spin"></i></span></td><td class="text-right col-md-2"></td>');
                 reader.onload = (function(theFile) {
                     return function(e) {
                         $.ajax({
-                            type: 'post',
-                            url: '/admin/source.php',
-                            data: 'tmp=' + e.target.result + '&name=' + file_name + '&folder=' + options.path,
-                            async: false,
-                            success: function(res) {
-                                options.onsuccess(res, file_name);
-                            }
-                        })
+                                type: 'post',
+                                url: '/admin/source.php',
+                                data: 'tmp=' + e.target.result + '&name=' + file_name + '&folder=' + options.path,
+                                async: options.multi===false?true:false,
+                                success: function(res) {
+                                    th.parents('.hpanel').find('table tbody tr:last td:eq(1)').html('<span class="label label-success">Файл загружен</span>');
+                                    th.parents('.hpanel').find('table tbody tr:last td:eq(2)').html($("#fileUploadButton").template());
+                                    $("#fullSize").html(th.parents('.hpanel').find('table tbody tr').size());
+                                },
+                                error: function(){
+                                    th.parents('.hpanel').find('table tbody tr:last td:eq(1)').html('<span class="label label-danger">Ошибка загрузки</span>');
+                                }
+                            })
                     };
                 })(f);
                 reader.readAsDataURL(f);
@@ -341,4 +354,15 @@ function msg(status, sms) {
         });
         return this;
     };
+})(jQuery);
+
+(function($){
+    var compiled={};
+    $.fn.template=function(data){
+        var template= $.trim($(this).first().html());
+        if (compiled[template]==undefined){
+            compiled[template]=Handlebars.compile(template);
+        }
+        return $(compiled[template](data));
+    }
 })(jQuery);
