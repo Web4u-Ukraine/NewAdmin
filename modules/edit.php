@@ -46,6 +46,18 @@
                 $value='';
                 include '../admin/template/file.tpl';
                 break;
+
+            case 'radio':
+                $x='';
+                $name=$key;
+                $label=$value['name'];
+                foreach ($value['list'] as $k=>$v){
+                    $check=$k==$row[$name]?'checked':'';
+                    $x.='<div><input type="radio" '.$check.' name="'.$name.'" value="'.$k.'"> '.$v.'</div>';
+                }
+                $radio=$x;
+                include '../admin/template/radio.tpl';
+                break;
         }
     }
     ?>
