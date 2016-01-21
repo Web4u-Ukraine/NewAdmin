@@ -84,7 +84,7 @@ $(function () {
             function (isConfirm) {
                 if (isConfirm) {
                     $.ajax({
-                        url: '/admin/ajax/Module.php',
+                        url: path+'ajax/Module.php',
                         type: 'post',
                         data: {flag: 'delete', table: table, id: id},
                         success: function () {
@@ -100,7 +100,7 @@ $(function () {
 
     /*** TODO додавання ***/
     $("#add").formAjax({
-        url: '/admin/ajax/Module.php',
+        url: path+'ajax/Module.php',
         flag: 'add',
         damp: false,
         table: true,
@@ -113,7 +113,7 @@ $(function () {
 
     /*** TODO редагування ***/
     $("#edit").formAjax({
-        url: '/admin/ajax/Module.php',
+        url: path+'ajax/Module.php',
         flag: 'edit',
         damp: true,
         table: true,

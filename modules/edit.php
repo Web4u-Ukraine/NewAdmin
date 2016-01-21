@@ -29,7 +29,7 @@
                 $name=$key;
                 $label=$value['name'];
                 $class=$value['class'];
-                $value='';
+                $value=$row[$name];
                 include '../admin/template/textarea.tpl';
                 break;
 
