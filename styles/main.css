@@ -1,0 +1,7 @@
+#side-menu li.active a, #side-menu li:hover a{
+    color: #1A712C;
+}
+
+.mainIndexTable tr td:nth-last-child(1){
+    text-align: right;
+}
