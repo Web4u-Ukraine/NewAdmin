@@ -15,7 +15,7 @@ $(function () {
             ["Действие отменено"],//5
             ["Да, удалить"],//6
             ["Нет, отмена"],//7
-            ["Список всех товаров"],//8
+            ["Список всех позиций"],//8
             ["Здесь вы можете посмотреть все позиции"],//9
             ["Пагинация"],//10
             ["Вы можете задать количество строк, которое будет показываться на странице"],//11
@@ -98,18 +98,42 @@ $(function () {
             });
     });
 
+    /*** TODO видалення файлів ***/
+    $(document).on('click', '[data-toggle=removeLoadFiles]', function () {
+        var th = $(this);
+        swal({
+                title: words.rus[0][0],
+                text: words.rus[1][0],
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: words.rus[6][0],
+                cancelButtonText: words.rus[7][0],
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    th.parents('tr').remove();
+                    swal(words.rus[2][0], words.rus[3][0], "success");
+                } else {
+                    swal(words.rus[4][0], words.rus[5][0], "error");
+                }
+            });
+    });
+
     /*** TODO додавання ***/
     $("#add").formAjax({
         url: path+'ajax/Module.php',
         flag: 'add',
-        damp: false,
+        damp: true,
         table: true,
         reset: true,
         onsuccess: function (res) {
             var deb = JSON.parse(res);
             msg(deb[0].status, deb[0].sms);
         }
-    })
+    });
 
     /*** TODO редагування ***/
     $("#edit").formAjax({
@@ -218,13 +242,22 @@ $(function () {
         external_plugins: { "filemanager" : path+"finder/filemanager/plugin.min.js"}
     });
 
-    $("#files").jLoad({
-        path: '/source/items/',
-        onsuccess: function(res, name){
-            console.log(res, name);
-        }
-    })
+    //CKEDITOR.replaceClass = ('editor', {
+    //    filebrowserBrowseUrl : path+'finder/filemanager/dialog.php?type=2&editor=ckeditor&fldr=',
+    //    filebrowserUploadUrl : path+'finder/filemanager/dialog.php?type=2&editor=ckeditor&fldr=',
+    //    filebrowserImageBrowseUrl : path+'finder/filemanager/dialog.php?type=1&editor=ckeditor&fldr='
+    //});
+
+    $("[data-toggle=LoadUserFile]").jLoad();
+
+    /*** TODO fancy ***/
+    $(".fancy").fancybox();
 });
+
+function CKupdate(){
+    for ( instance in CKEDITOR.instances )
+        CKEDITOR.instances[instance].updateElement();
+}
 
 function msg(status, sms) {
     toastr.options = {
@@ -289,8 +322,10 @@ function msg(status, sms) {
                     $(".box-color-pl1").hide();
                 }, 2000);
             } else {
+                tinyMCE.triggerSave();
                 var obj = $(this).serialize();
                 var table=options.table===true?'&table='+$(this).attr('data-table'):'';
+
                 var th=$(this);
                 $.ajax({
                     type: 'post',
@@ -301,7 +336,10 @@ function msg(status, sms) {
                             console.log(res);
                         }
                         options.onsuccess(res);
-                        th[0].reset();
+                        if (options.reset===true) {
+                            th[0].reset();
+                            $(".panel-body table tbody").html('');
+                        }
                     }
                 })
             }
@@ -325,26 +363,32 @@ function msg(status, sms) {
             var files = evt.target.files;
             var th=$(this);
             for (var i = 0, f; f = files[i]; i++) {
-                if (!f.type.match(options.type)) {
-                    continue;
-                }
+                //if (!f.type.match(options.type)) {
+                //    continue;
+                //}
                 var file_name = f.name;
                 var reader = new FileReader();
-                th.parents('.hpanel').find('table tbody').append('<tr><td class="col-md-8">'+file_name+'</td><td class="col-md-2"><span class="label label-info">Начало загрузки <i class="fa fa-refresh fa-spin"></i></span></td><td class="text-right col-md-2"></td>');
+                var input_name=th.parents('.hpanel').find('table').attr('data-input');
+                th.closest('.hpanel').find('table tbody').append('<tr><td class="col-md-8">'+file_name+'</td><td class="col-md-2"><span class="label label-info">Начало загрузки <i class="fa fa-refresh fa-spin"></i></span></td><td class="text-right col-md-2"></td>');
                 reader.onload = (function(theFile) {
                     return function(e) {
                         $.ajax({
                                 type: 'post',
-                                url: '/admin/source.php',
-                                data: 'tmp=' + e.target.result + '&name=' + file_name + '&folder=' + options.path,
+                                url: '/contrast/admin/source.php',
+                                data: 'tmp=' + e.target.result + '&name=' + file_name + '&folder=' + th.attr('data-path'),
                                 async: options.multi===false?true:false,
                                 success: function(res) {
-                                    th.parents('.hpanel').find('table tbody tr:last td:eq(1)').html('<span class="label label-success">Файл загружен</span>');
-                                    th.parents('.hpanel').find('table tbody tr:last td:eq(2)').html($("#fileUploadButton").template());
-                                    $("#fullSize").html(th.parents('.hpanel').find('table tbody tr').size());
+                                    var data={
+                                        name: input_name,
+                                        value: res,
+                                        url: th.attr('data-path')+'/'+res
+                                    };
+                                    th.closest('.hpanel').find('table tbody tr:last td:eq(1)').html('<span class="label label-success">Файл загружен</span>');
+                                    th.closest('.hpanel').find('table tbody tr:last td:eq(2)').html($("#fileUploadButton").template(data));
+                                    th.closest('.hpanel').find('[data-toggle=fullSize]').html(th.closest('.hpanel').find('table tbody tr').size());
                                 },
                                 error: function(){
-                                    th.parents('.hpanel').find('table tbody tr:last td:eq(1)').html('<span class="label label-danger">Ошибка загрузки</span>');
+                                    th.closest('.hpanel').find('table tbody tr:last td:eq(1)').html('<span class="label label-danger">Ошибка загрузки</span>');
                                 }
                             })
                     };

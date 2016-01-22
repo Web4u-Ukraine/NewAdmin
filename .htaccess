@@ -1,0 +1,12 @@
+AddDefaultCharset utf-8
+RewriteEngine on
+RewriteBase /
+
+ErrorDocument 404 error.php
+ErrorDocument 403 error.php
+ErrorDocument 402 error.php
+
+DirectoryIndex /contrast/admin/rulles.php
+
+RewriteRule ^([^.]+)$ /contrast/admin/rulles.php
+

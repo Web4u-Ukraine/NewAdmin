@@ -18,7 +18,7 @@
             case 'select':
                 $name=$key;
                 $label=$value['name'];
-                $option=$module->getOption("category", "id", "name", "");
+                $option=$module->getOption($value['table']['name'], $value['table']['value'], $value['table']['text'], "");
                 include '../admin/template/select.tpl';
                 break;
 
@@ -26,6 +26,7 @@
                 $name=$key;
                 $label=$value['name'];
                 $class=$value['class'];
+                $id=$value['id'];
                 $value='';
                 include '../admin/template/textarea.tpl';
                 break;
@@ -41,6 +42,7 @@
                 $label=$value['name'];
                 $class=$value['class'];
                 $value='';
+                $path='/contrast/source/'.$mod.'/';
                 include '../admin/template/file.tpl';
                 break;
 

@@ -21,7 +21,7 @@
             case 'select':
                 $name=$key;
                 $label=$value['name'];
-                $option=$module->getOption("category", "id", "name", $row[$key]);
+                $option=$module->getOption($value['table']['name'], $value['table']['value'], $value['table']['text'], $row[$key]);
                 include '../admin/template/select.tpl';
                 break;
 
@@ -43,7 +43,17 @@
                 $name=$key;
                 $label=$value['name'];
                 $class=$value['class'];
-                $value='';
+                $files='';
+                $img=explode('&', $row[$key]);
+                foreach ($img as $file){
+                    $data=array(
+                        "name"=>$file,
+                        "url"=>"/contrast/source/".$mod."/".$file,
+                        "input"=>$key
+                    );
+                    $files.=$index->setTemplate('file_button', $data);
+                }
+                $path='/contrast/source/'.$mod.'/';
                 include '../admin/template/file.tpl';
                 break;
 
