@@ -322,7 +322,7 @@ function msg(status, sms) {
                     $(".box-color-pl1").hide();
                 }, 2000);
             } else {
-                tinyMCE.triggerSave();
+                tinymce.triggerSave();
                 var obj = $(this).serialize();
                 var table=options.table===true?'&table='+$(this).attr('data-table'):'';
 
@@ -339,6 +339,7 @@ function msg(status, sms) {
                         if (options.reset===true) {
                             th[0].reset();
                             $(".panel-body table tbody").html('');
+                            $("[data-toggle=fullSize]").html('');
                         }
                     }
                 })
@@ -368,7 +369,7 @@ function msg(status, sms) {
                 //}
                 var file_name = f.name;
                 var reader = new FileReader();
-                var input_name=th.parents('.hpanel').find('table').attr('data-input');
+                var input_name=th.closest('.hpanel').find('table').attr('data-input');
                 th.closest('.hpanel').find('table tbody').append('<tr><td class="col-md-8">'+file_name+'</td><td class="col-md-2"><span class="label label-info">Начало загрузки <i class="fa fa-refresh fa-spin"></i></span></td><td class="text-right col-md-2"></td>');
                 reader.onload = (function(theFile) {
                     return function(e) {

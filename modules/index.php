@@ -21,7 +21,7 @@
                         <a href="add/" class="btn btn-success pull-right tour-final"><i class="fa fa-plus"></i> <?= $index->getWords(12) ?></a>
 
                         <? } ?>
-                    <button class="btn btn-primary run-tour pull-right" style="margin-left: 10px"><i class="fa fa-question"></i> <?= $index->getWords(17) ?></button>
+                    <button class="btn btn-primary run-tour pull-right" style="margin-right: 10px"><i class="fa fa-question"></i> <?= $index->getWords(17) ?></button>
                 <? } ?>
             </h2>
         </div>

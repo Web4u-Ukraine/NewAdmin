@@ -66,7 +66,7 @@ $config = array(
 	| with start and final /
 	|
 	*/
-	'upload_dir' => '/source/',
+	'upload_dir' => '/contrast/source/',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -76,7 +76,7 @@ $config = array(
 	| with final /
 	|
 	*/
-	'current_path' => $_SERVER['DOCUMENT_ROOT'].'/source/',
+	'current_path' => $_SERVER['DOCUMENT_ROOT'].'/contrast/source/',
 
 	/*
 	|--------------------------------------------------------------------------

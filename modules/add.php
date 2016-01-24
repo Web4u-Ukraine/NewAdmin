@@ -52,7 +52,7 @@
                 $label=$value['name'];
                 foreach ($value['list'] as $k=>$v){
                     $check=$k==$row[$name]?'checked':'';
-                    $x.='<div><input type="radio" '.$check.' name="'.$name.'" value="'.$k.'"> '.$v.'</div>';
+                    $x.='<div class="checkbox"><label> <input type="radio" class="i-checks" '.$check.' name="'.$name.'" value="'.$k.'"> '.$v.' </label></div>';
                 }
                 $radio=$x;
                 include '../admin/template/radio.tpl';

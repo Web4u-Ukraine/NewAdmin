@@ -137,7 +137,7 @@ $table = array(
                 "display"=>false
             ),
             "email" => array(
-                "name" => "E-mail",
+                "name" => "Контакты",
                 "type" => "input",
                 "display" => false
             )
@@ -244,6 +244,11 @@ $table = array(
                 "type" => "input",
                 "display" => false
             ),
+            "address" => array(
+                "name" => "Адрес",
+                "type" => "input",
+                "display" => true
+            ),
             "img_a"=>array(
                 "name"=>"Фото стороны А",
                 "type"=>"file",
@@ -253,7 +258,8 @@ $table = array(
                 "name"=>"Текст стороны А",
                 "type"=>"textarea",
                 "class"=>"editor",
-                "display"=>true
+                "display"=>true,
+                "id"=>"editor_1"
             ),
             "img_b"=>array(
                 "name"=>"Фото стороны B",
@@ -264,7 +270,69 @@ $table = array(
                 "name"=>"Текст стороны B",
                 "type"=>"textarea",
                 "class"=>"editor",
+                "display"=>true,
+                "id"=>"editor_2"
+            )
+        )
+    ),
+    /*** TODO партнеры ***/
+    "partners" => array(
+        "title" => array(
+            "index" => "Парнеры",
+            "add" => "Добавить партнера",
+            "edit" => "Редактировать партнера"
+        ),
+        "rows" => array(
+            "id" => array(
+                "name" => "ID",
+                "type" => "hidden",
+                "display" => true
+            ),
+            "name"=>array(
+                "name"=>"Название",
+                "type"=>"input",
                 "display"=>true
+            ),
+            "img"=>array(
+                "name"=>"Фото",
+                "type"=>"file",
+                "display"=>false
+            ),
+            "href"=>array(
+                "name"=>"Ссылка",
+                "type"=>"input",
+                "display"=>true
+            )
+        )
+    ),
+    /*** TODO преимущества ***/
+    "foreve" => array(
+        "title" => array(
+            "index" => "Преимущества",
+            "add" => "Добавить преимущество",
+            "edit" => "Редактировать преимущество"
+        ),
+        "rows" => array(
+            "id" => array(
+                "name" => "ID",
+                "type" => "hidden",
+                "display" => true
+            ),
+            "text"=>array(
+                "name"=>"Текст",
+                "type"=>"textarea",
+                "display"=>true,
+                "class"=>"editor"
+            ),
+            "img"=>array(
+                "name"=>"Фото",
+                "type"=>"file",
+                "display"=>false
+            ),
+            "srt"=>array(
+                "name"=>"Выводить под номером",
+                "type"=>"input",
+                "display"=>false
             )
         )
     )

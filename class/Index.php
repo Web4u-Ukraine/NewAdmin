@@ -79,6 +79,16 @@ class Index
                 "icon" => "fa-map"
             ),
             array(
+                "name" => "Партнеры",
+                "pref" => "partners",
+                "icon" => "fa-briefcase"
+            ),
+            array(
+                "name" => "Преимущества",
+                "pref" => "foreve",
+                "icon" => "fa-bomb"
+            ),
+            array(
                 "name" => "Настройки",
                 "pref" => "settings",
                 "icon" => "fa-cog"
