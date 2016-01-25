@@ -19,7 +19,15 @@ switch ($_REQUEST['flag']){
                 if ($value['display']===false){
                     unset($row[$key]);
                 }
+
+                if ($value['type']=='select'){
+                    $temp_val=$value['table']['value'];
+                    $temp_now=$row[$key];
+                    $temp=sql(1, $value['table']['name'], "where $temp_val='$temp_now'");
+                    $row[$key]=$temp[0][$value['table']['text']];
+                }
             }
+
             $row['action']='
                 <a href="edit/?id='.$row['id'].'" class="btn btn-info"><i class="fa fa-pencil"></i></a>
                 <button data-toggle="delete" data-id="'.$row['id'].'" data-table="'.$tb.'" class="btn btn-danger"><i class="fa fa-trash"></i></button>
