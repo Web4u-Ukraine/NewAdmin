@@ -18,13 +18,11 @@ switch ($_REQUEST['flag']){
             foreach ($table[$tb]['rows'] as $key=>$value){
                 if ($value['display']===false){
                     unset($row[$key]);
-                }
-
-                if ($value['type']=='select'){
-                    $temp_val=$value['table']['value'];
-                    $temp_now=$row[$key];
-                    $temp=sql(1, $value['table']['name'], "where $temp_val='$temp_now'");
-                    $row[$key]=$temp[0][$value['table']['text']];
+                } else if ($value['type'] == 'select') {
+                    $temp_val = $value['table']['value'];
+                    $temp_now = $row[$key];
+                    $temp = sql(1, $value['table']['name'], "where $temp_val='$temp_now'");
+                    $row[$key] = $temp[0][$value['table']['text']];
                 }
             }
 

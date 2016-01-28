@@ -3,7 +3,7 @@
  */
 
 $(function () {
-    var path='/contrast/admin/';
+    var path='/admin/';
     var lang = 'rus';
     var words = {
         rus: [

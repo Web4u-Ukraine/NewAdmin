@@ -1,6 +1,6 @@
 <?
 if ($login!=''){
-	header("Location: /admin/home/");
+	header("Location: /contrast/admin/home/");
 }
 ?>
 <div class="login-container">

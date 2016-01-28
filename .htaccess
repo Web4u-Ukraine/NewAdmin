@@ -6,7 +6,7 @@ ErrorDocument 404 error.php
 ErrorDocument 403 error.php
 ErrorDocument 402 error.php
 
-DirectoryIndex /contrast/admin/rulles.php
+DirectoryIndex /admin/rulles.php
 
-RewriteRule ^([^.]+)$ /contrast/admin/rulles.php
+RewriteRule ^([^.]+)$ /admin/rulles.php
 

@@ -9,13 +9,13 @@
 
             <h2 class="font-light m-b-xs">
                 <?
-                if ($arg4==''){
-                    echo $table[$arg3]['title']['index'];
+                if ($arg3==''){
+                    echo $table[$arg2]['title']['index'];
                 } else {
-                    echo $arg4=='add'?$table[$arg3]['title']['add']:$table[$arg3]['title']['edit'];
+                    echo $arg3=='add'?$table[$arg2]['title']['add']:$table[$arg2]['title']['edit'];
                 }
                 ?>
-                <? if ($arg4==''){
+                <? if ($arg3==''){
                     if ($table[$mod]['title']['add']!=''){
                     ?>
                         <a href="add/" class="btn btn-success pull-right tour-final"><i class="fa fa-plus"></i> <?= $index->getWords(12) ?></a>
@@ -35,12 +35,12 @@
         <div class="col-lg-12">
             <div class="hpanel">
                 <div class="panel-body tour-1">
-                    <? if ($arg4==''){ ?>
+                    <? if ($arg3==''){ ?>
                     <table id="index" data-toggle="ajax" data-table="<?= $mod ?>" class="display table table-bordered mainIndexTable">
                         <thead>
                         <tr>
                             <?
-                            foreach ($table[$arg3]['rows'] as $row) {
+                            foreach ($table[$arg2]['rows'] as $row) {
                                 if ($row['display'] === true) { ?>
                                     <th><?= $row['name'] ?></th>
                                 <? }
@@ -50,7 +50,7 @@
                         </thead>
                     </table>
                     <? } else {
-                        require $arg4.'.php';
+                        require $arg3.'.php';
                     } ?>
                 </div>
             </div>

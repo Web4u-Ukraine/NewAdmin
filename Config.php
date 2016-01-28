@@ -94,12 +94,6 @@ $table = array(
                     "text"=>"name"
                 )
             ),
-            "text" => array(
-                "name" => "Описание",
-                "type" => "textarea",
-                "display" => true,
-                "class"=>"editor"
-            ),
             "img"=>array(
                 "name"=>"Фото",
                 "type"=>"file",
@@ -249,6 +243,21 @@ $table = array(
                 "type" => "input",
                 "display" => true
             ),
+            "name_rows" => array(
+                "name" => "Текст в таблице",
+                "type" => "input",
+                "display" => false
+            ),
+            "table_ident" => array(
+                "name" => "Таблица",
+                "type" => "select",
+                "display" => false,
+                "table" => array(
+                    "name" => "table_ident",
+                    "value" => "id",
+                    "text" => "name"
+                )
+            ),
             "img_a"=>array(
                 "name"=>"Фото стороны А",
                 "type"=>"file",
@@ -261,6 +270,11 @@ $table = array(
                 "display"=>true,
                 "id"=>"editor_1"
             ),
+            "name_a" => array(
+                "name" => "Название A",
+                "type" => "input",
+                "display" => false
+            ),
             "img_b"=>array(
                 "name"=>"Фото стороны B",
                 "type"=>"file",
@@ -272,7 +286,12 @@ $table = array(
                 "class"=>"editor",
                 "display"=>true,
                 "id"=>"editor_2"
-            )
+            ),
+            "name_b" => array(
+                "name" => "Название B",
+                "type" => "input",
+                "display" => false
+            ),
         )
     ),
     /*** TODO партнеры ***/

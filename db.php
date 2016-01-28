@@ -1,9 +1,9 @@
 <?
  $db_connection;
- $db_options['host'] = 'bestcond.mysql.ukraine.com.ua';
- $db_options['user'] = 'bestcond_contr';
- $db_options['password'] = 'tfvjxwuq';
- $db_options['database'] = 'bestcond_contr';
+ $db_options['host'] = 'localhost';
+ $db_options['user'] = 'co22667_site';
+ $db_options['password'] = 'NOTO06JB';
+ $db_options['database'] = 'co22667_site';
 
 function db_stat()
 {

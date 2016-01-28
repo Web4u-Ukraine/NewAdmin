@@ -4,7 +4,7 @@ date_default_timezone_set('Europe/Kiev');
 session_start();
 $login=$_SESSION['admin'];
 $access=$_SESSION['access'];
-$puth='/contrast/admin';
+$puth='/admin';
 $lang='rus';
 ini_set("display_errors", "0");
 error_reporting(E_ALL);
@@ -37,7 +37,7 @@ if ($arg4!=''){ $pref="$arg4"; }
 if ($arg5!=''){ $pref="$arg5"; }
 if ($arg6!=''){ $pref="$arg6"; }
 
-$mod=$arg3;
+$mod=$arg2;
 
 require 'Config.php';
 include('db.php');
@@ -46,15 +46,15 @@ require 'class/Module.php';
 $index=new Index($lang, $login);
 $module=new Module();
 include('modules/header.php');
-if ($arg3==''){
+if ($arg2==''){
 	include('modules/login.php');
 } else {
 	if ($login==''){
-		header("Location: /contrast/admin/");
+		header("Location: /admin/");
 	}
 	include('modules/top.php');
-	if (file_exists('modules/'.$arg3.'.php')){
-		include('modules/'.$arg3.'.php');
+	if (file_exists('modules/'.$arg2.'.php')){
+		include('modules/'.$arg2.'.php');
 	} else {
 		include('modules/index.php');
 	}

@@ -98,7 +98,7 @@ class Index
         foreach ($menu as $row) {
             $active = $now == $row['pref'] ? 'class="active"' : '';
             $x .= '<li ' . $active . '>
-                <a href="/contrast/admin/' . $row['pref'] . '/"><i class="fa ' . $row['icon'] . '"></i> <span class="nav-label">' . $row['name'] . '</span></a>
+                <a href="/admin/' . $row['pref'] . '/"><i class="fa ' . $row['icon'] . '"></i> <span class="nav-label">' . $row['name'] . '</span></a>
             </li>';
         }
 
@@ -108,7 +108,7 @@ class Index
 
     public function setTemplate($template, $data)
     {
-        $str = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/contrast/admin/template/' . $template . '.tpl');
+        $str = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/admin/template/' . $template . '.tpl');
         foreach ($data as $key => $value) {
             $str = str_replace('{$' . $key . '}', $value, $str);
         }
