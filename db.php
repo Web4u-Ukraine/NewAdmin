@@ -1,9 +1,9 @@
 <?
  $db_connection;
  $db_options['host'] = 'localhost';
- $db_options['user'] = 'admin_laba';
- $db_options['password'] = 'msHU9GXLdJ';
- $db_options['database'] = 'admin_laba';
+ $db_options['user'] = 'admin_boardbel';
+ $db_options['password'] = 'ELMP6FJzB9';
+ $db_options['database'] = 'admin_boardbel';
 
 function db_stat()
 {
@@ -76,13 +76,10 @@ function slice($srt){
 $c=explode('.', $_SERVER['REMOTE_ADDR']);
 $integer_ip = (16777216*$c[0])+(65536*$c[1])+(256*$c[2])+$c[3];
 
-function sql($type, $table, $where, $dump, $rows){
+function sql($type, $table, $where, $dump){
 	switch ($type){
 		case 1:
-			if ($rows==""){
-				$rows="*";
-			}
-			$res=db_select("select $rows from $table $where");
+			$res=db_select("select * from $table $where");
 			if ($dump==1){
 				echo "select * from $table $where";
 			}
@@ -112,7 +109,6 @@ function sql($type, $table, $where, $dump, $rows){
 				echo "delete from $table $where";
 			}
 			break;
-
 	}
 }
 ?>
