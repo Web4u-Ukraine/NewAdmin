@@ -1,6 +1,10 @@
 <?
 if ($login!=''){
+<<<<<<< HEAD
 	header("Location: /admin/home/");
+=======
+	header("Location: /contrast/admin/home/");
+>>>>>>> editors
 }
 ?>
 <div class="login-container">

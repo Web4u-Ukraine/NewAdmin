@@ -66,7 +66,11 @@ $config = array(
 	| with start and final /
 	|
 	*/
+<<<<<<< HEAD
 	'upload_dir' => '/source/',
+=======
+	'upload_dir' => '/contrast/source/',
+>>>>>>> editors
 
 	/*
 	|--------------------------------------------------------------------------
@@ -76,7 +80,11 @@ $config = array(
 	| with final /
 	|
 	*/
+<<<<<<< HEAD
 	'current_path' => $_SERVER['DOCUMENT_ROOT'].'/source/',
+=======
+	'current_path' => $_SERVER['DOCUMENT_ROOT'].'/contrast/source/',
+>>>>>>> editors
 
 	/*
 	|--------------------------------------------------------------------------

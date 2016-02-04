@@ -15,9 +15,19 @@
                     echo $arg3=='add'?$table[$arg2]['title']['add']:$table[$arg2]['title']['edit'];
                 }
                 ?>
+<<<<<<< HEAD
                 <? if ($arg3==''){ ?>
                 <button class="btn btn-primary run-tour pull-right" style="margin-left: 10px"><i class="fa fa-question"></i> <?= $index->getWords(17) ?></button>
                 <a href="add/" class="btn btn-success pull-right tour-final"><i class="fa fa-plus"></i> <?= $index->getWords(12) ?></a>
+=======
+                <? if ($arg3==''){
+                    if ($table[$mod]['title']['add']!=''){
+                    ?>
+                        <a href="add/" class="btn btn-success pull-right tour-final"><i class="fa fa-plus"></i> <?= $index->getWords(12) ?></a>
+
+                        <? } ?>
+                    <button class="btn btn-primary run-tour pull-right" style="margin-right: 10px"><i class="fa fa-question"></i> <?= $index->getWords(17) ?></button>
+>>>>>>> editors
                 <? } ?>
             </h2>
         </div>
@@ -32,7 +42,11 @@
             <div class="hpanel">
                 <div class="panel-body tour-1">
                     <? if ($arg3==''){ ?>
+<<<<<<< HEAD
                     <table id="index" data-toggle="ajax" data-table="<?= $arg2 ?>" class="display table table-bordered">
+=======
+                    <table id="index" data-toggle="ajax" data-table="<?= $mod ?>" class="display table table-bordered mainIndexTable">
+>>>>>>> editors
                         <thead>
                         <tr>
                             <?

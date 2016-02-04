@@ -1,8 +1,16 @@
 <?php
+<<<<<<< HEAD
 date_default_timezone_set('Europe/Kiev');
 session_start();
 $login=$_SESSION['admin'];
 $access=$_SESSION[access];
+=======
+ini_set('short_open_tag', '0');
+date_default_timezone_set('Europe/Kiev');
+session_start();
+$login=$_SESSION['admin'];
+$access=$_SESSION['access'];
+>>>>>>> editors
 $puth='/admin';
 $lang='rus';
 ini_set("display_errors", "0");
@@ -36,6 +44,11 @@ if ($arg4!=''){ $pref="$arg4"; }
 if ($arg5!=''){ $pref="$arg5"; }
 if ($arg6!=''){ $pref="$arg6"; }
 
+<<<<<<< HEAD
+=======
+$mod=$arg2;
+
+>>>>>>> editors
 require 'Config.php';
 include('db.php');
 require 'class/Index.php';

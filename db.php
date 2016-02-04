@@ -1,9 +1,15 @@
 <?
  $db_connection;
  $db_options['host'] = 'localhost';
+<<<<<<< .merge_file_YODcbC
  $db_options['user'] = 'admin_boardbel';
  $db_options['password'] = 'ELMP6FJzB9';
  $db_options['database'] = 'admin_boardbel';
+=======
+ $db_options['user'] = 'co22667_site';
+ $db_options['password'] = 'NOTO06JB';
+ $db_options['database'] = 'co22667_site';
+>>>>>>> .merge_file_zWd5je
 
 function db_stat()
 {
@@ -76,10 +82,20 @@ function slice($srt){
 $c=explode('.', $_SERVER['REMOTE_ADDR']);
 $integer_ip = (16777216*$c[0])+(65536*$c[1])+(256*$c[2])+$c[3];
 
+<<<<<<< .merge_file_YODcbC
 function sql($type, $table, $where, $dump){
 	switch ($type){
 		case 1:
 			$res=db_select("select * from $table $where");
+=======
+function sql($type, $table, $where, $dump, $rows){
+	switch ($type){
+		case 1:
+			if ($rows==""){
+				$rows="*";
+			}
+			$res=db_select("select $rows from $table $where");
+>>>>>>> .merge_file_zWd5je
 			if ($dump==1){
 				echo "select * from $table $where";
 			}
@@ -109,6 +125,7 @@ function sql($type, $table, $where, $dump){
 				echo "delete from $table $where";
 			}
 			break;
+
 	}
 }
 ?>

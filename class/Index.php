@@ -32,6 +32,7 @@ class Index
 
     public function getMenu($now)
     {
+<<<<<<< HEAD
         $menu = [
             [
                 "name" => "Главная",
@@ -49,6 +50,70 @@ class Index
                 "icon" => "fa-shopping-basket"
             ]
         ];
+=======
+        $menu = array(
+            array(
+                "name" => "Главная",
+                "pref" => "home",
+                "icon" => "fa-home"
+            ),
+            array(
+                "name" => "Акции",
+                "pref" => "akcia",
+                "icon" => "fa-bell"
+            ),
+            array(
+                "name" => "Категории портфолио",
+                "pref" => "portfolio_category",
+                "icon" => "fa-bars"
+            ),
+            array(
+                "name" => "Портфолио",
+                "pref" => "portfolio",
+                "icon" => "fa-desktop"
+            ),
+            array(
+                "name" => "Вакансии",
+                "pref" => "vakancii",
+                "icon" => "fa-user"
+            ),
+            array(
+                "name" => "Наши услуги",
+                "pref" => "service",
+                "icon" => "fa-copyright"
+            ),
+            array(
+                "name" => "Выражения",
+                "pref" => "words",
+                "icon" => "fa-edit"
+            ),
+            array(
+                "name" => "Тексты",
+                "pref" => "text",
+                "icon" => "fa-header"
+            ),
+            array(
+                "name" => "Карта",
+                "pref" => "points",
+                "icon" => "fa-map"
+            ),
+            array(
+                "name" => "Партнеры",
+                "pref" => "partners",
+                "icon" => "fa-briefcase"
+            ),
+            array(
+                "name" => "Преимущества",
+                "pref" => "foreve",
+                "icon" => "fa-bomb"
+            ),
+            array(
+                "name" => "Настройки",
+                "pref" => "settings",
+                "icon" => "fa-cog"
+            )
+        );
+>>>>>>> editors
 
         foreach ($menu as $row) {
             $active = $now == $row['pref'] ? 'class="active"' : '';
@@ -60,4 +125,16 @@ class Index
         return $x;
 
     }
+<<<<<<< HEAD
+=======
+
+    public function setTemplate($template, $data)
+    {
+        $str = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/admin/template/' . $template . '.tpl');
+        foreach ($data as $key => $value) {
+            $str = str_replace('{$' . $key . '}', $value, $str);
+        }
+        return $str;
+    }
+>>>>>>> editors
 }

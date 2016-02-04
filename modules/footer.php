@@ -1,6 +1,7 @@
 <!-- Right sidebar -->
 <div id="right-sidebar" class="animated fadeInRight">
 
+<<<<<<< HEAD
     <div class="p-m">
         <button id="sidebar-close" class="right-sidebar-toggle sidebar-button btn btn-default m-b-md"><i class="pe pe-7s-close"></i>
         </button>
@@ -110,6 +111,8 @@
         </small>
     </div>
 
+=======
+>>>>>>> editors
 </div>
 
 <!-- Footer-->
@@ -123,8 +126,14 @@
 </div>
 <!-- Vendor scripts -->
 <script id="fileUploadButton" type="text/x-handlebars-template">
+<<<<<<< HEAD
     <button class="btn btn-info btn-sm"><i class="fa fa-eye"></i></button>&nbsp;
     <button class="btn btn-error btn-sm"><i class="fa fa-trash"></i></button>
+=======
+    <a href="{{url}}" class="btn fancy btn-info btn-sm"><i class="fa fa-eye"></i></a>&nbsp;
+    <button type="button" data-toggle="removeLoadFiles" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+    <input type="hidden" value="{{value}}" name="{{name}}[]">
+>>>>>>> editors
 </script>
 <script src="<?= $puth ?>/vendor/jquery/dist/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
@@ -142,8 +151,16 @@
 <script src="<?= $puth ?>/vendor/toastr/build/toastr.min.js"></script>
 <script src="<?= $puth ?>/vendor/sweetalert/lib/sweet-alert.min.js"></script>
 <script src="<?= $puth ?>/vendor/select2-3.5.2/select2.min.js"></script>
+<<<<<<< HEAD
 <script src="<?= $puth ?>/vendor/tinymce/tinymce.min.js"></script>
 <script src="<?= $puth ?>/scripts/handlebars-v4.0.5.js"></script>
+=======
+<!--<script src="--><?//= $puth ?><!--/vendor/ckeditor/ckeditor.js"></script>-->
+<script src="<?= $puth ?>/vendor/tinymce/tinymce.min.js"></script>
+<script src="<?= $puth ?>/scripts/handlebars-v4.0.5.js"></script>
+<script src="<?= $puth ?>/vendor/fancy/jquery.fancybox.js"></script>
+<script src="<?= $puth ?>/vendor/iCheck/icheck.min.js"></script>
+>>>>>>> editors
 <!-- App scripts -->
 <script src="<?= $puth ?>/vendor/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
 <script src="<?= $puth ?>/scripts/homer.js"></script>

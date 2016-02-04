@@ -3,6 +3,7 @@
         <div class="row">
             <div class="col-lg-12 text-center m-t-md">
                 <h2>
+<<<<<<< HEAD
                     Ласкаво просимо до WebMin
                 </h2>
 
@@ -369,4 +370,10 @@
                     </div>
                 </div>
         -->
+=======
+                    Добро пожаловать
+                </h2>
+            </div>
+        </div>
+>>>>>>> editors
     </div>

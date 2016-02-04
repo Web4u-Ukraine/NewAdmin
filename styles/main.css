@@ -1,3 +1,11 @@
 #side-menu li.active a, #side-menu li:hover a{
     color: #1A712C;
+<<<<<<< HEAD
+=======
+}
+
+.mainIndexTable tr td:nth-last-child(1){
+    text-align: right;
+    width: auto;
+>>>>>>> editors
 }
